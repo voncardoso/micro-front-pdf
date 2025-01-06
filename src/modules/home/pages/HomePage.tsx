@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { MyDocument } from '../components/teste';
 import { pdf } from '@react-pdf/renderer';
 
@@ -21,6 +21,16 @@ export const HomePage: React.FC = () => {
     // Liberar o objeto URL
     URL.revokeObjectURL(url);
   };
+  const [token, setToken] = useState<string>();
+
+  useEffect(() => {
+    const tokenFromStorage = localStorage.getItem('auth_token_gapus_v1');
+    if (tokenFromStorage) {
+      setToken(tokenFromStorage);
+    }
+  }, []);
+
+  console.log(token);
 
   return (
     <div className="min-h-screen w-screen flex items-center justify-center bg-gray-50">
