@@ -75,44 +75,34 @@ const BackCover: FunctionComponent<IPdfObligationsProps> = ({}) => {
         </View>
         <View style={styles.paragraph}>
           <Text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-            rhoncus nisi quis nunc pretium, ac tristique neque semper. In porta
-            ornare metus, sit amet cursus tellus convallis vel. Quisque non sem
-            eu eros iaculis porta non nec massa. Vestibulum laoreet imperdiet
-            diam. Maecenas nisl ipsum, hendrerit vitae auctor in, sagittis non
-            enim. Aliquam sit amet tortor eget purus porttitor aliquet nec sit
-            amet ante. Donec a vestibulum nisl. Quisque vestibulum erat dui, sit
-            amet suscipit felis auctor id. Maecenas sodales velit et efficitur
-            condimentum. Mauris a sollicitudin ante, non tincidunt mi. Integer
-            vestibulum sed erat sed hendrerit. Sed nec viverra nunc. Proin
-            pellentesque scelerisque sollicitudin. Sed molestie, sem vel
-            ullamcorper porttitor, ligula justo malesuada neque, at sodales
-            dolor augue nec nibh. Nam diam erat, mattis quis ipsum non, luctus
-            scelerisque metus. Etiam rutrum a nisi sit amet porta
+            Este relatório apresenta uma análise detalhada dos investimentos e
+            avanços realizados no âmbito do programa de concessões, demonstrando
+            o compromisso com a transparência e o desenvolvimento sustentável
+            dos serviços públicos concedidos. O documento contempla as
+            iniciativas implementadas pelas concessionárias vencedoras do
+            processo licitatório, evidenciando o cumprimento das metas
+            estabelecidas e o progresso alcançado nos objetivos contratuais.
           </Text>
           <Text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-            rhoncus nisi quis nunc pretium, ac tristique neque semper. In porta
-            ornare metus, sit amet cursus tellus convallis vel. Quisque non sem
-            eu eros iaculis porta non nec massa. Vestibulum laoreet imperdiet
-            diam. Maecenas nisl ipsum, hendrerit vitae auctor in, sagittis non
-            enim. Aliquam sit amet tortor eget purus porttitor aliquet nec sit
-            amet ante. Donec a vestibulum nisl. Quisque vestibulum erat dui, sit
-            amet suscipit felis auctor id. Maecenas sodales velit et efficitur
-            condimentum. Mauris a sollicitudin ante, non tincidunt mi. Integer
-            vestibulum sed erat sed hendrerit. Sed nec viverra nunc. Proin
-            pellentesque scelerisque sollicitudin. Sed molestie, sem vel
-            ullamcorper porttitor, ligula justo malesuada neque, at sodales
-            dolor augue nec nibh. Nam diam erat, mattis quis ipsum non, luctus
-            scelerisque metus. Etiam rutrum a nisi sit amet porta
+            Através de uma abordagem técnica e objetiva, este documento
+            consolida informações essenciais sobre a execução dos projetos,
+            incluindo dados financeiros, cronogramas de implementação e
+            indicadores de desempenho. São apresentados os resultados das ações
+            executadas, demonstrando o alinhamento com as diretrizes
+            estabelecidas no edital de licitação e o impacto positivo gerado
+            para a sociedade.
           </Text>
-        </View>
-        <View style={styles.date}>
-          <Text>Praesent, 21 elit Mauris elit 2024.</Text>
-        </View>
-        <View style={styles.signature}>
-          <Text style={styles.signatureText}>
-            Maecenas Vehicula vel Urna at Vulputate
+          <Text>
+            O conteúdo aqui apresentado reflete o compromisso das
+            concessionárias com a excelência na prestação de serviços e a
+            responsabilidade na gestão dos recursos investidos. Este relatório
+            serve como instrumento de prestação de contas e acompanhamento,
+            permitindo uma visão clara e abrangente dos avanços obtidos no
+            período, bem como dos desafios enfrentados e das estratégias
+            adotadas para superá-los. As informações compiladas neste documento
+            são fundamentais para a avaliação do progresso das concessões e para
+            o planejamento de ações futuras, visando a contínua melhoria dos
+            serviços prestados à população.
           </Text>
         </View>
       </Template>

@@ -4,6 +4,9 @@ import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from 'recharts';
 import TableYearCapex from './TableYearCapex';
 import { IYearData } from '../../../types/investmentsPerYear';
 import '../../../utils/fontRegister';
+import Legends from '../../../components/Legends';
+import { legends } from '../../../constants/legends';
+import { styles } from './style';
 
 interface IProps {
   tableData: IYearData[];
@@ -11,64 +14,6 @@ interface IProps {
   sewage: IYearData[];
   water: IYearData[];
 }
-const styles = StyleSheet.create({
-  generalBox: {
-    fontFamily: 'Nunito',
-  },
-  boxTitle: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  generalTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-  titleTable: {
-    fontSize: 16,
-    fontWeight: 'semibold',
-  },
-
-  labelInformation: {
-    width: '10px',
-    height: '10px',
-  },
-  observation: {
-    fontSize: 9,
-    fontWeight: 'normal',
-    display: 'flex',
-    flexDirection: 'row',
-    gap: 2,
-  },
-  legend: {
-    display: 'flex',
-    flexDirection: 'row',
-    alignContent: 'center',
-    gap: 6,
-  },
-  boxLegend: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    gap: 2,
-  },
-  legendText: {
-    fontSize: 9,
-  },
-  paragraph: {
-    fontSize: 12,
-    fontWeight: 'normal',
-    display: 'flex',
-    gap: 10,
-    marginVertical: 20,
-  },
-  chart: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
 
 const InvestmentPerYear = ({ tableData, yearsData, sewage, water }: IProps) => {
   function sumByYear(data: IYearData[]) {
@@ -157,20 +102,14 @@ const InvestmentPerYear = ({ tableData, yearsData, sewage, water }: IProps) => {
       </View>
       <View style={styles.paragraph}>
         <Text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-          rhoncus nisi quis nunc pretium, ac tristique neque semper. In porta
-          ornare metus, sit amet cursus tellus convallis vel. Quisque non sem eu
-          eros iaculis porta non nec massa. Vestibulum laoreet imperdiet diam.
-          Maecenas nisl ipsum, hendrerit vitae auctor in, sagittis non enim.
-          Aliquam sit amet tortor eget purus porttitor aliquet nec sit amet
-          ante. Donec a vestibulum nisl. Quisque vestibulum erat dui, sit amet
-          suscipit felis auctor id. Maecenas sodales velit et efficitur
-          condimentum. Mauris a sollicitudin ante, non tincidunt mi. Integer
-          vestibulum sed erat sed hendrerit. Sed nec viverra nunc. Proin
-          pellentesque scelerisque sollicitudin. Sed molestie, sem vel
-          ullamcorper porttitor, ligula justo malesuada neque, at sodales dolor
-          augue nec nibh. Nam diam erat, mattis quis ipsum non, luctus
-          scelerisque metus. Etiam rutrum a nisi sit amet porta
+          Esta seção apresenta a distribuição temporal dos investimentos
+          realizados, detalhando os valores aplicados em cada período do
+          projeto. A análise temporal permite visualizar o fluxo de recursos e
+          sua distribuição ao longo dos anos, demonstrando o comprometimento com
+          o cronograma estabelecido no plano de concessão. Os dados estão
+          organizados em períodos anuais, facilitando o acompanhamento da
+          evolução dos investimentos e sua correlação com as etapas previstas na
+          concessão.
         </Text>
       </View>
 
@@ -206,20 +145,25 @@ const InvestmentPerYear = ({ tableData, yearsData, sewage, water }: IProps) => {
             </BarChart>
           </ReactPDFChart>
         </View>
+        <Legends alignItems="center" legends={legends} />
         <View style={styles.paragraph}>
           <Text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-            rhoncus nisi quis nunc pretium, ac tristique neque semper. In porta
-            ornare metus, sit amet cursus tellus convallis vel. Quisque non sem
-            eu eros iaculis porta non nec massa. Vestibulum laoreet imperdiet
-            diam. Maecenas nisl ipsum.
+            O gráfico apresenta uma análise comparativa entre os investimentos
+            previstos e os efetivamente realizados durante o período da
+            concessão. Esta visualização permite avaliar o grau de aderência
+            entre o planejamento financeiro inicial e sua execução real,
+            destacando eventuais variações e seus respectivos impactos no
+            desenvolvimento do projeto. A comparação serve como importante
+            indicador de desempenho e eficiência na gestão dos recursos,
+            auxiliando na identificação de pontos de atenção e oportunidades de
+            otimização.
           </Text>
         </View>
       </View>
 
       <View wrap={false}>
         <Text style={styles.titleTable}>
-          Investimento Previsto x Realizado Agua
+          Investimento Previsto x Realizado ( Água )
         </Text>
         <View style={styles.chart}>
           <ReactPDFChart>
@@ -246,20 +190,19 @@ const InvestmentPerYear = ({ tableData, yearsData, sewage, water }: IProps) => {
             </BarChart>
           </ReactPDFChart>
         </View>
+        <Legends alignItems="center" legends={legends} />
         <View style={styles.paragraph}>
           <Text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-            rhoncus nisi quis nunc pretium, ac tristique neque semper. In porta
-            ornare metus, sit amet cursus tellus convallis vel. Quisque non sem
-            eu eros iaculis porta non nec massa. Vestibulum laoreet imperdiet
-            diam. Maecenas nisl ipsum.
+            A análise comparativa entre os investimentos previstos e realizados
+            permite avaliar a efetividade da execução do plano de investimentos,
+            considerando as metas estabelecidas no contrato de concessão.
           </Text>
         </View>
       </View>
 
       <View wrap={false}>
         <Text style={styles.titleTable}>
-          Investimento Previsto x Realizado Esgoto
+          Investimento Previsto x Realizado ( Esgoto )
         </Text>
         <View style={styles.chart}>
           <ReactPDFChart>
@@ -286,13 +229,13 @@ const InvestmentPerYear = ({ tableData, yearsData, sewage, water }: IProps) => {
             </BarChart>
           </ReactPDFChart>
         </View>
+        <Legends alignItems="center" legends={legends} />
+
         <View style={styles.paragraph}>
           <Text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-            rhoncus nisi quis nunc pretium, ac tristique neque semper. In porta
-            ornare metus, sit amet cursus tellus convallis vel. Quisque non sem
-            eu eros iaculis porta non nec massa. Vestibulum laoreet imperdiet
-            diam. Maecenas nisl ipsum.
+            A análise comparativa entre os investimentos previstos e realizados
+            permite avaliar a efetividade da execução do plano de investimentos,
+            considerando as metas estabelecidas no contrato de concessão.
           </Text>
         </View>
       </View>
