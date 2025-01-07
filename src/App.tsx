@@ -1,13 +1,14 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { HomePage } from './modules/home/pages/HomePage';
-import { LoginPage } from './modules/auth/pages/LoginPage';
+import { InvestimentosPerYear } from './modules/InvestimentPerYear';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/app-vite" element={<HomePage />} />
-        <Route path="/app-vite/login" element={<LoginPage />} />
+        <Route
+          path="/app-vite/investimentPerYear"
+          element={<InvestimentosPerYear />}
+        />
       </Routes>
     </BrowserRouter>
   );
