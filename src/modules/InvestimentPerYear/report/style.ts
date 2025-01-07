@@ -56,5 +56,6 @@ export const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    paddingTop: 10,
   },
 });
