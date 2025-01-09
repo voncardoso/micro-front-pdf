@@ -6,7 +6,14 @@ export const RenderedPDFViewer: FC<
   Omit<ComponentProps<typeof PDFViewerRenderer>, 'children'> & {
     text: string;
   }
-> = ({ style, className, text: outerText, innerRef, showToolbar = true, ...props }) => {
+> = ({
+  style,
+  className,
+  text: outerText,
+  innerRef,
+  showToolbar = true,
+  ...props
+}) => {
   const text = useDeferredValue(outerText);
   const { url, loading, error } = useRenderPDF({ text });
 
@@ -28,7 +35,7 @@ export const RenderedPDFViewer: FC<
       </div>
     );
   }
-
+  console.log({ src });
   return (
     <iframe
       // @ts-ignore
