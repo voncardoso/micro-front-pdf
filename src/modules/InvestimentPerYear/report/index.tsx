@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from '@react-pdf/renderer';
+import { Text, View } from '@react-pdf/renderer';
 import ReactPDFChart from 'react-pdf-charts';
 import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from 'recharts';
 import TableYearCapex from './TableYearCapex';
@@ -54,6 +54,52 @@ const InvestmentPerYear = ({ tableData, yearsData, sewage, water }: IProps) => {
         <Text style={styles.generalTitle}>(jul/2021 a nov/2023)</Text>
       </View>
 
+      <View>
+        <Text style={styles.titleTable}>Investimentos por Ano</Text>
+        <TableYearCapex
+          optionLineInvestiment="Visão Geral"
+          subtitle="Investimento previsto até "
+          title="Teste"
+          years={yearsData}
+          table={tableData}
+        ></TableYearCapex>
+        <View>
+          <View style={styles.observation}>
+            <Text style={{ fontWeight: 'bold' }}>Observação:</Text>
+            <Text>Investimentos realizados pela BRK Ambiental até 11/2023</Text>
+          </View>
+          <View
+            style={{
+              display: 'flex',
+              alignItems: 'flex-end',
+              justifyContent: 'flex-start',
+              position: 'absolute',
+              width: '100%',
+            }}
+          >
+            <View style={styles.legend}>
+              <View style={styles.boxLegend}>
+                <Text style={styles.legendText}>Previsto: </Text>
+                <View
+                  style={{
+                    ...styles.labelInformation,
+                    backgroundColor: '#0B2543',
+                  }}
+                ></View>
+              </View>
+              <View style={styles.boxLegend}>
+                <Text style={styles.legendText}>Realizado: </Text>
+                <View
+                  style={{
+                    ...styles.labelInformation,
+                    backgroundColor: '#F1760F',
+                  }}
+                ></View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
       <View>
         <Text style={styles.titleTable}>Investimentos por Ano</Text>
         <TableYearCapex
