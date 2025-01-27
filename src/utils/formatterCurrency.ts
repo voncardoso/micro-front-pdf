@@ -2,7 +2,7 @@ import { ECurrency } from '../enums/currency.enum';
 import { ELocale } from '../enums/locale.enum';
 
 export function formatterCurrency(
-  number: number,
+  number?: number,
   currency = ECurrency.BRL,
   module: boolean = false
 ) {
@@ -12,7 +12,7 @@ export function formatterCurrency(
   };
 
   const formatted = new Intl.NumberFormat(ELocale.PT_BR, options).format(
-    number
+    number || 0
   );
 
   if (module) {
