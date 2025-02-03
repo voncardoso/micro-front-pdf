@@ -136,12 +136,11 @@ const ReportInvestmentTotal = ({ data }: IProps) => {
         <Text>
           Esta seção apresenta a distribuição temporal dos investimentos
           realizados, detalhando os valores aplicados em cada período do
-          projeto. A análise temporal permite visualizar o fluxo de recursos e
-          sua distribuição ao longo dos anos, demonstrando o comprometimento com
-          o cronograma estabelecido no plano de concessão. Os dados estão
-          organizados em períodos anuais, facilitando o acompanhamento da
-          evolução dos investimentos e sua correlação com as etapas previstas na
-          concessão.
+          projeto. A análise temporal demonstra o fluxo de recursos e sua
+          distribuição ao longo dos anos, em comparação ao cronograma
+          estabelecido no plano de concessão. Os dados estão organizados em
+          períodos anuais, permitindo o acompanhamento da evolução dos
+          investimentos e sua correlação com as etapas contratuais previstas.
         </Text>
       </View>
 

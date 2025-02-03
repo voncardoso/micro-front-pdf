@@ -76,34 +76,33 @@ const BackCover: FunctionComponent<IPdfObligationsProps> = ({}) => {
         </View>
         <View style={styles.paragraph}>
           <Text>
-            Este relatório apresenta uma análise detalhada dos investimentos e
-            avanços realizados no âmbito do programa de concessões, demonstrando
-            o compromisso com a transparência e o desenvolvimento sustentável
-            dos serviços públicos concedidos. O documento contempla as
-            iniciativas implementadas pelas concessionárias vencedoras do
-            processo licitatório, evidenciando o cumprimento das metas
-            estabelecidas e o progresso alcançado nos objetivos contratuais.
+            Este relatório apresenta a análise dos investimentos e ações
+            realizadas no âmbito do programa de concessões de saneamento,
+            abrangendo o período de [período de referência]. O documento
+            contempla as iniciativas implementadas pela concessionára através do
+            processo licitatório, apresentando os dados referentes as metas de
+            investimentos contratuais estabelecidas.
           </Text>
           <Text>
-            Através de uma abordagem técnica e objetiva, este documento
-            consolida informações essenciais sobre a execução dos projetos,
-            incluindo dados financeiros, cronogramas de implementação e
-            indicadores de desempenho. São apresentados os resultados das ações
-            executadas, demonstrando o alinhamento com as diretrizes
-            estabelecidas no edital de licitação e o impacto positivo gerado
-            para a sociedade.
+            As informações compiladas neste documento servem como base para a
+            verificação do andamento da concessão conforme as metas contratuais
+            estabelecidas, subsidiando o planejamento e as ações de
+            fiscalização. A análise destes dados permite à agência reguladora e
+            demais órgãos responsáveis, avaliar o cumprimento das obrigações
+            contratuais e a conformidade com os marcos regulatórios do setor de
+            saneamento.
           </Text>
           <Text>
-            O conteúdo aqui apresentado reflete o compromisso das
-            concessionárias com a excelência na prestação de serviços e a
-            responsabilidade na gestão dos recursos investidos. Este relatório
-            serve como instrumento de prestação de contas e acompanhamento,
-            permitindo uma visão clara e abrangente dos avanços obtidos no
-            período, bem como dos desafios enfrentados e das estratégias
-            adotadas para superá-los. As informações compiladas neste documento
-            são fundamentais para a avaliação do progresso das concessões e para
-            o planejamento de ações futuras, visando a contínua melhoria dos
-            serviços prestados à população.
+            A estrutura do relatório está organizada em seções específicas que
+            abordam:
+          </Text>
+          <Text>- Dado dos sistemas de água e esgoto</Text>
+          <Text>- Evolução do programa de investimentos ao longo dos anos</Text>
+          <Text>- Visualização metas contratuais e suas respectivas datas</Text>
+          <Text>
+            Assim, constituindo um instrumento de prestação de contas e
+            acompanhamento da concessão, apresentando os dados do período
+            analisado, sobre os investimentos registrados.
           </Text>
         </View>
       </View>
