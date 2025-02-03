@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
     border: '1px solid #D4D4D8',
     backgroundColor: '#FDE9C8',
     padding: 4,
+    maxWidth: '25%',
   },
   boxRowWithGap: {
     display: 'flex',
@@ -51,7 +52,8 @@ const RowTotalYearPdf: FunctionComponent<IRowTotalPdfProps> = ({
           style={{
             ...styles.boxRowData,
             justifyContent: 'center',
-            width: '80%',
+            width: '25%',
+            maxWidth: '25%',
           }}
         >
           <Text style={{ textAlign: 'left', fontSize: 8 }}>Total</Text>

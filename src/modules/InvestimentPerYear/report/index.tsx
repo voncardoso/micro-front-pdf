@@ -57,6 +57,22 @@ const InvestmentPerYear = ({
     return result;
   }
 
+  function chunkYear(array: number[], size: number = 3) {
+    const result = [];
+    for (let i = 0; i < array.length; i += size) {
+      result.push(array.sort((a, b) => a - b).slice(i, i + size));
+    }
+    return result;
+  }
+
+  function chunkData(array: IYearData[], size: number = 6) {
+    const result = [];
+    for (let i = 0; i < array.length; i += size) {
+      result.push(array.sort((a, b) => a.year - b.year).slice(i, i + size));
+    }
+    return result;
+  }
+
   return (
     <View style={styles.generalBox}>
       <View style={styles.boxTitle} wrap={true}>
@@ -68,11 +84,16 @@ const InvestmentPerYear = ({
 
       <View>
         <Text style={styles.titleTable}>Investimentos por Ano</Text>
-        <TableYearCapex
-          optionLineInvestiment="Visão Geral"
-          years={yearsData}
-          table={tableData}
-        ></TableYearCapex>
+        {chunkYear(yearsData).map((year, index) => {
+          return (
+            <TableYearCapex
+              optionLineInvestiment="Visão Geral"
+              years={year}
+              table={chunkData(tableData)[index]}
+            ></TableYearCapex>
+          );
+        })}
+
         <View>
           <View style={styles.observation}>
             <Text style={{ fontWeight: 'bold' }}>Observação:</Text>

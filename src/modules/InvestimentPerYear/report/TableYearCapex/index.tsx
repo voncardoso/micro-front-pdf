@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
   },
   boxHeaderTable: {
     width: '100%',
+    maxWidth: '25%',
     border: '1px solid #D4D4D8',
     backgroundColor: '#EFFAFF',
     paddingVertical: 4,
@@ -74,7 +75,6 @@ const HeaderTableCapexPdf: FunctionComponent<IHeaderTable> = ({ years }) => {
       <View
         style={{
           ...styles.boxHeaderTable,
-          width: '80%',
         }}
       >
         <Text style={styles.textHeaderTable}>Sistema</Text>
