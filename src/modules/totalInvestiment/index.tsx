@@ -26,7 +26,7 @@ export const TotalInvestiment: React.FC = () => {
               title={'Meta de Investimento Total'}
               block={data?.data}
             />
-            <BackCover />
+            <BackCover block={data?.data} />
             <Template>
               <ReportInvestmentTotal data={data?.data} />
             </Template>

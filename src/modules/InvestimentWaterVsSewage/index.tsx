@@ -28,7 +28,7 @@ export const InvestmentsWaterVsSewage: React.FC = () => {
               title={'RELATÓRIO DE INVESTIMENTOS DE MUNICÍPIOS'}
               block={block?.data}
             />
-            <BackCover />
+            <BackCover block={block?.data} />
             <Template>
               {data && <ReportInvestimentWaterVsSewage data={data.data} />}
             </Template>

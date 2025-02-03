@@ -28,7 +28,7 @@ export const Block: React.FC = () => {
               title={'RELATÓRIO DE INVESTIMENTOS'}
               block={data?.data}
             />
-            <BackCover />
+            <BackCover block={data?.data} />
             <Template>
               <InformationsBlock
                 data={data?.data}

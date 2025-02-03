@@ -37,7 +37,7 @@ export const InvestmentsPerObjectiveToWork: React.FC = () => {
               title={'RELATÓRIO DE INVESTIMENTOS'}
               block={data?.data}
             />
-            <BackCover />
+            <BackCover block={data?.data} />
             <Template>
               {dataWater && dataSewage && (
                 <ReportInvestimentPerObejectiveToWork

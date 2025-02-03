@@ -34,7 +34,7 @@ export const CapexObjectiveToWork: React.FC = () => {
               title={'RELATÓRIO DE INVESTIMENTOS'}
               block={block?.data}
             />
-            <BackCover />
+            <BackCover block={block?.data} />
             <Template>
               {data?.data && capexSewage && (
                 <>

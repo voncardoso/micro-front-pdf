@@ -67,14 +67,12 @@ export const GeneralInestimentRealized: React.FC = () => {
       ) : (
         <PDFViewer width="100%" height="100%">
           <Document>
-            {block && (
-              <Capa
-                concessionarieName={CONCESSIONAIRES[idblock]}
-                title={'RELATÓRIO DE INVESTIMENTOS'}
-                block={block.data}
-              />
-            )}
-            <BackCover />
+            <Capa
+              concessionarieName={CONCESSIONAIRES[idblock]}
+              title={'RELATÓRIO DE INVESTIMENTOS'}
+              block={block?.data}
+            />
+            <BackCover block={block?.data} />
             <Template>
               <InformationsBlock
                 data={block?.data}

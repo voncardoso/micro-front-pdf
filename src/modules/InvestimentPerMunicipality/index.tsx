@@ -40,7 +40,7 @@ export const InvestmentsPerMunicipality: React.FC = () => {
               title={'RELATÓRIO DE INVESTIMENTOS DE MUNICÍPIOS'}
               block={block?.data}
             />
-            <BackCover />
+            <BackCover block={block?.data} />
             <Template>
               {dataWater && dataSewage && dataGeneral && (
                 <ReportInvestimentPerMunicipality
