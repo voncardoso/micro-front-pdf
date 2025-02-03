@@ -5,6 +5,8 @@ import ImgBlock from '../../../components/ImgBlock';
 import { IMunicipality } from '../../../services/municipality/@types';
 import { styles } from './style';
 import { formatterCurrency } from '../../../utils/formatterCurrency';
+import { formatterDate } from '../../../utils/formatterDate';
+import { formatterNumber } from '../../../utils/formatterDecimal';
 
 interface IProps {
   data?: IInformationsBlock;
@@ -17,12 +19,10 @@ export const InformationsBlock: React.FC<IProps> = ({
   idblock,
   municipality,
 }: IProps) => {
-  console.log(municipality);
-  console.log(data);
   return (
     <View style={{}}>
       <View>
-        <Text style={styles.title}>Visão Geral do bloco {data?.name}</Text>
+        <Text style={styles.title}>Visão Geral do {data?.name}</Text>
       </View>
       <View style={styles.containerInformation}>
         <View style={styles.boxInformation}>
@@ -35,11 +35,14 @@ export const InformationsBlock: React.FC<IProps> = ({
           </Text>
           <Text style={styles.labelInformation}>
             {' '}
-            Investimento Total para Água
+            Investimento Total para Água até{' '}
+            {data && formatterDate(data.lastInvestmentDate, 'MM/YYYY')}
           </Text>
         </View>
         <View style={styles.boxInformation}>
-          <Text style={styles.textInformation}>{data?.population}</Text>
+          <Text style={styles.textInformation}>
+            {formatterNumber(data?.population)}
+          </Text>
           <Text style={styles.labelInformation}>População</Text>
         </View>
         <View style={styles.boxInformation}>
@@ -48,7 +51,8 @@ export const InformationsBlock: React.FC<IProps> = ({
           </Text>
           <Text style={styles.labelInformation}>
             {' '}
-            Investimento Total para Esgoto
+            Investimento Total para Esgoto até{' '}
+            {data && formatterDate(data.lastInvestmentDate, 'MM/YYYY')}
           </Text>
         </View>
         <View style={styles.boxInformation}>
@@ -63,7 +67,8 @@ export const InformationsBlock: React.FC<IProps> = ({
           </Text>
           <Text style={styles.labelInformation}>
             {' '}
-            Investimento Total Previsto
+            Investimento Total Previsto até{' '}
+            {data && data.firstYearOfContract + data?.totalOfContractYears}
           </Text>
         </View>
       </View>
@@ -80,7 +85,7 @@ export const InformationsBlock: React.FC<IProps> = ({
                     {municipality.name}
                   </Text>
                   <Text style={styles.labelMunicipality}>
-                    {municipality.population}
+                    {formatterNumber(municipality.population)}
                   </Text>
                 </View>
               );

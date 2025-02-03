@@ -46,6 +46,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     gap: 10,
     marginBottom: 20,
+    textAlign: 'justify',
   },
   date: {
     marginTop: 40,
@@ -68,8 +69,8 @@ interface IPdfObligationsProps {}
 
 const BackCover: FunctionComponent<IPdfObligationsProps> = ({}) => {
   return (
-    <>
-      <Template>
+    <Template>
+      <View style={{ paddingHorizontal: 20 }}>
         <View style={styles.title}>
           <Text>Apresentação</Text>
         </View>
@@ -105,8 +106,8 @@ const BackCover: FunctionComponent<IPdfObligationsProps> = ({}) => {
             serviços prestados à população.
           </Text>
         </View>
-      </Template>
-    </>
+      </View>
+    </Template>
   );
 };
 

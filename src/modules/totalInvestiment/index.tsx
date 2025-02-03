@@ -24,7 +24,7 @@ export const TotalInvestiment: React.FC = () => {
             <Capa
               concessionarieName={CONCESSIONAIRES[idblock]}
               title={'Meta de Investimento Total'}
-              period={'(35 anos)'}
+              block={data?.data}
             />
             <BackCover />
             <Template>

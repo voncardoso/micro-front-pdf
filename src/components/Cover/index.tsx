@@ -11,6 +11,8 @@ import {
 } from '@react-pdf/renderer';
 import { FunctionComponent } from 'react';
 import IconLogo from '../../assets/Logo';
+import { IInformationsBlock } from '../../services/block/@types';
+import { formatterDate } from '../../utils/formatterDate';
 Font.register({
   family: 'Nunito',
   fonts: [
@@ -57,13 +59,13 @@ const styles = StyleSheet.create({
 interface IPdfObligationsProps {
   concessionarieName: string;
   title: string;
-  period: string;
+  block?: IInformationsBlock;
 }
 
 const Cover: FunctionComponent<IPdfObligationsProps> = ({
   concessionarieName,
   title,
-  period,
+  block,
 }) => {
   return (
     <>
@@ -119,7 +121,13 @@ const Cover: FunctionComponent<IPdfObligationsProps> = ({
         >
           <Text>{concessionarieName}</Text>
           <Text style={{ fontWeight: 'normal' }}>{title}</Text>
-          <Text>{period}</Text>
+          {block && (
+            <Text>{`${
+              block && formatterDate(block.dateOfContractSignature, 'MM/YYYY')
+            } - ${
+              block && formatterDate(block.lastInvestmentDate, 'MM/YYYY')
+            }`}</Text>
+          )}
         </View>
       </Page>
     </>

@@ -6,15 +6,15 @@ import { useSearchParams } from 'react-router-dom';
 import { CONCESSIONAIRES } from '../../constants/concessionaires';
 import Template from '../../components/Template';
 import Loading from '../../components/Loading';
+import ReportInvestimentWaterVsSewage from './report';
+import { useWaterVsSewage } from '../../services/waterVsSewage';
 import { useInformationsBlock } from '../../services/block';
-import { InformationsBlock } from './report';
-import { useMunicipality } from '../../services/municipality';
 
-export const Block: React.FC = () => {
+export const InvestmentsWaterVsSewage: React.FC = () => {
   const [searchParams] = useSearchParams();
-  const idblock = Number(searchParams.get('idBlock'));
-  const { data, isLoading } = useInformationsBlock(idblock);
-  const { data: municipality } = useMunicipality();
+  const idBlock = Number(searchParams.get('idBlock')) || 1;
+  const { data, isLoading } = useWaterVsSewage(idBlock);
+  const { data: block } = useInformationsBlock(idBlock);
 
   return (
     <div className="h-screen w-screen flex items-center justify-center bg-gray-50">
@@ -24,17 +24,13 @@ export const Block: React.FC = () => {
         <PDFViewer width="100%" height="100%">
           <Document>
             <Capa
-              concessionarieName={CONCESSIONAIRES[idblock]}
-              title={'RELATÓRIO DE INVESTIMENTOS'}
-              block={data?.data}
+              concessionarieName={CONCESSIONAIRES[idBlock]}
+              title={'RELATÓRIO DE INVESTIMENTOS DE MUNICÍPIOS'}
+              block={block?.data}
             />
             <BackCover />
             <Template>
-              <InformationsBlock
-                data={data?.data}
-                idblock={idblock}
-                municipality={municipality?.data}
-              ></InformationsBlock>
+              {data && <ReportInvestimentWaterVsSewage data={data.data} />}
             </Template>
           </Document>
         </PDFViewer>

@@ -41,6 +41,7 @@ const Legends = ({ legends, alignItems }: ILegendsProps) => {
           justifyContent: 'flex-start',
           position: 'absolute',
           width: '100%',
+          bottom: 1,
         }}
       >
         <View style={styles.legend}>

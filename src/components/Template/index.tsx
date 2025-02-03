@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     paddingBottom: 30,
     fontSize: 12,
     fontFamily: 'Nunito',
-    paddingHorizontal: 30,
+    paddingHorizontal: 40,
   },
   schedule: {
     paddingHorizontal: 80,
@@ -85,6 +85,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     padding: 10,
     borderTop: '1px solid #E4E4E7',
+    backgroundColor: '#fff',
     paddingHorizontal: 33,
   },
   textFooter: {
@@ -143,7 +144,7 @@ const Template: FunctionComponent<IPdfObligationsProps> = ({
   orientation,
 }) => {
   return (
-    <Page orientation={orientation}>
+    <Page orientation={orientation} style={{ paddingBottom: 30 }}>
       <View
         fixed
         style={{
@@ -175,7 +176,7 @@ const Template: FunctionComponent<IPdfObligationsProps> = ({
         <Text style={styles.textFooter} fixed>
           SEGOV - Secretaria de Governo | Rua Cincinato Pinto, s/n Centro - CEP
           57020-050 | Maceió - Alagoas (82) 9 8727-3991 |
-          gabinete@segov.al.gov.b
+          gabinete@segov.al.gov.br
         </Text>
       </View>
     </Page>

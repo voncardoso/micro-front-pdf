@@ -6,35 +6,45 @@ import { useSearchParams } from 'react-router-dom';
 import { CONCESSIONAIRES } from '../../constants/concessionaires';
 import Template from '../../components/Template';
 import Loading from '../../components/Loading';
+import ReportInvestimentPerObejectiveToWork from './report';
+import { useInvestimentObejectiveToWork } from '../../services/objectiveToWork';
 import { useInformationsBlock } from '../../services/block';
-import { InformationsBlock } from './report';
-import { useMunicipality } from '../../services/municipality';
 
-export const Block: React.FC = () => {
+export const InvestmentsPerObjectiveToWork: React.FC = () => {
   const [searchParams] = useSearchParams();
-  const idblock = Number(searchParams.get('idBlock'));
-  const { data, isLoading } = useInformationsBlock(idblock);
-  const { data: municipality } = useMunicipality();
+  const idBlock = Number(searchParams.get('idBlock')) || 1;
+  const { data: dataWater, isLoading: isLoadingWater } =
+    useInvestimentObejectiveToWork({
+      idBlock,
+      line: 'AGUA',
+    });
+  const { data: dataSewage, isLoading: isLoadingSewage } =
+    useInvestimentObejectiveToWork({
+      idBlock,
+      line: 'ESGOTO',
+    });
 
+  const { data } = useInformationsBlock(idBlock);
   return (
     <div className="h-screen w-screen flex items-center justify-center bg-gray-50">
-      {isLoading ? (
+      {isLoadingWater || isLoadingSewage ? (
         <Loading />
       ) : (
         <PDFViewer width="100%" height="100%">
           <Document>
             <Capa
-              concessionarieName={CONCESSIONAIRES[idblock]}
+              concessionarieName={CONCESSIONAIRES[idBlock]}
               title={'RELATÓRIO DE INVESTIMENTOS'}
               block={data?.data}
             />
             <BackCover />
             <Template>
-              <InformationsBlock
-                data={data?.data}
-                idblock={idblock}
-                municipality={municipality?.data}
-              ></InformationsBlock>
+              {dataWater && dataSewage && (
+                <ReportInvestimentPerObejectiveToWork
+                  dataWater={dataWater.data}
+                  dataSewage={dataSewage?.data}
+                />
+              )}
             </Template>
           </Document>
         </PDFViewer>

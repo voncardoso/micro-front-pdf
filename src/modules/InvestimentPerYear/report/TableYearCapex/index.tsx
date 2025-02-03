@@ -53,8 +53,6 @@ const styles = StyleSheet.create({
 interface ITableYearCapexPdfProps {
   table?: IYearData[];
   years: number[];
-  title: string;
-  subtitle: string;
   optionLineInvestiment: string;
 }
 interface IHeaderTable {
