@@ -1,17 +1,6 @@
 import { Text, View } from '@react-pdf/renderer';
-import { ITopicObjectiveToWork } from '../../../services/topicObjectiveToWork/@types';
 import ReactPDFChart from 'react-pdf-charts';
-import {
-  CartesianGrid,
-  Cell,
-  Legend,
-  Line,
-  LineChart,
-  Pie,
-  PieChart,
-  XAxis,
-  YAxis,
-} from 'recharts';
+import { Cell, Pie, PieChart } from 'recharts';
 import Legends from '../../../components/Legends';
 import { formatterCurrency } from '../../../utils/formatterCurrency';
 import { formatterPercentagem } from '../../../utils/formatterPercentagem';

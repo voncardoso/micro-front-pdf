@@ -6,10 +6,7 @@ import { useSearchParams } from 'react-router-dom';
 import { CONCESSIONAIRES } from '../../constants/concessionaires';
 import Template from '../../components/Template';
 import { useInformationsBlock } from '../../services/block';
-import {
-  useGetMunicipalityInvestimentChart,
-  useGetMunicipalityPerYearInvestimentChart,
-} from '../../services/municipality';
+import { useGetMunicipalityPerYearInvestimentChart } from '../../services/municipality';
 import Loading from '../../components/Loading';
 import { lineToText } from '../../utils/lineToText';
 import ReportDetailMunicipalityDonuts from './report/donuts';

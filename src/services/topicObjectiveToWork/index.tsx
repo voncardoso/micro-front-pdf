@@ -1,6 +1,5 @@
 import api from '../../infra/providers/axios/apit';
 import { useQuery } from '@tanstack/react-query';
-import { IGraphics } from '../../types/graphics';
 import { ITopicObjectiveToWork } from './@types';
 
 const getInvestimentCapexGeneral = async ({
