@@ -1,6 +1,8 @@
 import api from '../../infra/providers/axios/apit';
 import { IGroupYear, IYearData } from '../../types/investmentsPerYear';
 import { useQuery } from '@tanstack/react-query';
+import { IRequestParams } from './@types';
+import { IGraphics } from '../../types/graphics';
 
 function organizeData(data: IYearData[]): IGroupYear {
   return data.reduce<IGroupYear>(
@@ -60,5 +62,45 @@ export const useInvestmentsPerYear = (idBlock: number) => {
     queryKey: ['investmentsPerYear', idBlock],
     queryFn: () => getTableInvestmentsGroupedByYearAndLine(idBlock),
     enabled: !!idBlock,
+  });
+};
+
+const getInvestmentsChartYearAndLine = async (params: IRequestParams) => {
+  const tokenFromStorage = localStorage.getItem('auth_token_gapus_v1');
+
+  if (!tokenFromStorage) {
+    throw new Error('Token not found');
+  }
+
+  const { data } = await api.get<IGraphics>(
+    `capex/investment/chart/by-block-and-year`,
+    {
+      params: {
+        idBlock: params.idBlock,
+        line: params.line,
+        startYear: params.startYear,
+        endYear: params.endYear,
+        idTopic: params.idTopic,
+        idMunicipality: params.idMunicipality,
+      },
+      headers: { Authorization: `Bearer ${tokenFromStorage}` },
+    }
+  );
+
+  return {
+    data,
+  };
+};
+
+export const useInvestmentsChartPerYear = (params: IRequestParams) => {
+  return useQuery({
+    queryKey: [
+      'investmentsChartPerYear',
+      params.idTopic,
+      params.line,
+      params.endYear,
+    ],
+    queryFn: () => getInvestmentsChartYearAndLine(params),
+    enabled: !!params.endYear,
   });
 };

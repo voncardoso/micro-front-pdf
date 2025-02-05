@@ -7,6 +7,8 @@ import { GeneralInestimentRealized } from './modules/GeneralInvestmentRealized';
 import { InvestmentsPerObjectiveToWork } from './modules/InvestimentPerObjectiveToWork';
 import { InvestmentsPerMunicipality } from './modules/InvestimentPerMunicipality';
 import { InvestmentsWaterVsSewage } from './modules/InvestimentWaterVsSewage';
+import { TopicObjectiveToWork } from './modules/TopicObjectiveToWork';
+import { CapexMunicipality } from './modules/CapexMunicipality';
 
 function App() {
   return (
@@ -40,6 +42,16 @@ function App() {
         <Route
           path="/app-vite/investiment/waterVsSewage"
           element={<InvestmentsWaterVsSewage />}
+        />
+
+        <Route
+          path="/app-vite/objectiveToWork/topic"
+          element={<TopicObjectiveToWork />}
+        />
+
+        <Route
+          path="/app-vite/investiment/municipality/detail"
+          element={<CapexMunicipality />}
         />
       </Routes>
     </BrowserRouter>
