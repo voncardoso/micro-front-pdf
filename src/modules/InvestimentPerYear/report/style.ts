@@ -51,6 +51,7 @@ export const styles = StyleSheet.create({
     display: 'flex',
     gap: 10,
     marginVertical: 20,
+    textAlign: 'justify',
   },
   chart: {
     display: 'flex',

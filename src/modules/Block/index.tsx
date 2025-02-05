@@ -26,9 +26,9 @@ export const Block: React.FC = () => {
             <Capa
               concessionarieName={CONCESSIONAIRES[idblock]}
               title={'RELATÓRIO DE INVESTIMENTOS'}
-              period={'JUL/2021 - NOV/2023'}
+              block={data?.data}
             />
-            <BackCover />
+            <BackCover block={data?.data} />
             <Template>
               <InformationsBlock
                 data={data?.data}

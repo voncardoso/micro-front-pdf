@@ -7,6 +7,7 @@ import { FunctionComponent } from 'react';
 const styles = StyleSheet.create({
   boxRowData: {
     width: '100%',
+    maxWidth: '25%',
     border: '1px solid #D4D4D8',
     padding: 4,
     paddingHorizontal: 2,
@@ -50,7 +51,7 @@ const RowTableCapexYearPdf: FunctionComponent<IRowTableCapexYearPdfProps> = ({
             ...styles.boxRowData,
             paddingHorizontal: 4,
             justifyContent: 'center',
-            width: '80%',
+            width: '25%',
           }}
         >
           <Text style={{ textAlign: 'left', fontSize: 8 }}>{item.name}</Text>

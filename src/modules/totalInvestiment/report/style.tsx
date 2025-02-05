@@ -65,4 +65,7 @@ export const styles = StyleSheet.create({
     gap: 10,
     marginVertical: 20,
   },
+  containerLegends: {
+    width: '100%',
+  },
 });

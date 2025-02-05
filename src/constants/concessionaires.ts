@@ -3,7 +3,7 @@ interface Concessionaires {
 }
 
 export const CONCESSIONAIRES: Concessionaires = {
-  1: 'Brk ambiental',
-  2: 'Aguas do sertão',
+  1: 'BRK Ambiental',
+  2: 'águas do sertão',
   3: 'Verde alagoas',
 };

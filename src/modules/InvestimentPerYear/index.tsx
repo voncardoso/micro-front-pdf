@@ -8,12 +8,13 @@ import { useSearchParams } from 'react-router-dom';
 import { CONCESSIONAIRES } from '../../constants/concessionaires';
 import Template from '../../components/Template';
 import Loading from '../../components/Loading';
+import { useInformationsBlock } from '../../services/block';
 
-export const InvestimentosPerYear: React.FC = () => {
+export const InvestmentsPerYear: React.FC = () => {
   const [searchParams] = useSearchParams();
   const idblock = Number(searchParams.get('idBlock')) || 1;
   const { data, isLoading } = useInvestmentsPerYear(idblock);
-
+  const { data: block } = useInformationsBlock(idblock);
   return (
     <div className="h-screen w-screen flex items-center justify-center bg-gray-50">
       {isLoading ? (
@@ -24,9 +25,9 @@ export const InvestimentosPerYear: React.FC = () => {
             <Capa
               concessionarieName={CONCESSIONAIRES[idblock]}
               title={'RELATÓRIO DE INVESTIMENTOS'}
-              period={'JUL/2021 - NOV/2023'}
+              block={block?.data}
             />
-            <BackCover />
+            <BackCover block={block?.data} />
             <Template>
               {data && (
                 <InvestmentPerYear
@@ -34,6 +35,7 @@ export const InvestimentosPerYear: React.FC = () => {
                   yearsData={data.years}
                   sewage={data.sewage}
                   water={data.water}
+                  block={block?.data}
                 />
               )}
             </Template>

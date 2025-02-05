@@ -7,15 +7,25 @@ import '../../../utils/fontRegister';
 import Legends from '../../../components/Legends';
 import { legends } from '../../../constants/legends';
 import { styles } from './style';
+import { IInformationsBlock } from '../../../services/block/@types';
+import { formatterDate } from '../../../utils/formatterDate';
+import { formatCurrencyChart } from '../../../utils/formatterCurrencyChart';
 
 interface IProps {
   tableData: IYearData[];
   yearsData: number[];
   sewage: IYearData[];
   water: IYearData[];
+  block?: IInformationsBlock;
 }
 
-const InvestmentPerYear = ({ tableData, yearsData, sewage, water }: IProps) => {
+const InvestmentPerYear = ({
+  tableData,
+  yearsData,
+  sewage,
+  water,
+  block,
+}: IProps) => {
   function sumByYear(data: IYearData[]) {
     const result = [];
     const groupedByYear = data.reduce(
@@ -47,26 +57,50 @@ const InvestmentPerYear = ({ tableData, yearsData, sewage, water }: IProps) => {
     return result;
   }
 
+  function chunkYear(array: number[], size: number = 3) {
+    const result = [];
+    for (let i = 0; i < array.length; i += size) {
+      result.push(array.sort((a, b) => a - b).slice(i, i + size));
+    }
+    return result;
+  }
+
+  function chunkData(array: IYearData[], size: number = 6) {
+    const result = [];
+    for (let i = 0; i < array.length; i += size) {
+      result.push(array.sort((a, b) => a.year - b.year).slice(i, i + size));
+    }
+    return result;
+  }
+
   return (
     <View style={styles.generalBox}>
-      <View style={styles.boxTitle}>
+      <View style={styles.boxTitle} wrap={true}>
         <Text style={styles.generalTitle}>Investimentos por ano</Text>
-        <Text style={styles.generalTitle}>(jul/2021 a nov/2023)</Text>
+        <Text style={styles.generalTitle}>{`(${
+          block && formatterDate(block.dateOfContractSignature)
+        } - ${block && formatterDate(block.lastInvestmentDate)})`}</Text>
       </View>
 
       <View>
         <Text style={styles.titleTable}>Investimentos por Ano</Text>
-        <TableYearCapex
-          optionLineInvestiment="Visão Geral"
-          subtitle="Investimento previsto até "
-          title="Teste"
-          years={yearsData}
-          table={tableData}
-        ></TableYearCapex>
+        {chunkYear(yearsData).map((year, index) => {
+          return (
+            <TableYearCapex
+              optionLineInvestiment="Visão Geral"
+              years={year}
+              table={chunkData(tableData)[index]}
+            ></TableYearCapex>
+          );
+        })}
+
         <View>
           <View style={styles.observation}>
             <Text style={{ fontWeight: 'bold' }}>Observação:</Text>
-            <Text>Investimentos realizados pela BRK Ambiental até 11/2023</Text>
+            <Text>
+              Investimentos realizados pela {block?.concessionaire} até{' '}
+              {block && formatterDate(block?.lastInvestmentDate)}
+            </Text>
           </View>
           <View
             style={{
@@ -125,6 +159,7 @@ const InvestmentPerYear = ({ tableData, yearsData, sewage, water }: IProps) => {
             >
               <XAxis dataKey="year" />
               <YAxis
+                tickFormatter={(tick: any) => `${formatCurrencyChart(tick)}`}
                 tick={{
                   fontSize: 10,
                   alignmentBaseline: 'middle',
@@ -170,6 +205,7 @@ const InvestmentPerYear = ({ tableData, yearsData, sewage, water }: IProps) => {
             <BarChart data={water} height={200} width={400} barSize={30}>
               <XAxis dataKey="year" />
               <YAxis
+                tickFormatter={(tick: any) => `${formatCurrencyChart(tick)}`}
                 tick={{
                   fontSize: 10,
                   alignmentBaseline: 'middle',
@@ -209,6 +245,7 @@ const InvestmentPerYear = ({ tableData, yearsData, sewage, water }: IProps) => {
             <BarChart data={sewage} height={200} width={400} barSize={30}>
               <XAxis dataKey="year" />
               <YAxis
+                tickFormatter={(tick: any) => `${formatCurrencyChart(tick)}`}
                 tick={{
                   fontSize: 10,
                   alignmentBaseline: 'middle',
